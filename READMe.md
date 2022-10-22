@@ -1,0 +1,3 @@
+Luồng triển khai :
+
+Xây dựng giao diện HTML -> Xây dựng các handleRoute để đọc file Html -> Định nghĩa các đường dẫn vào router trong router.js -> vào server lấy được đường dẫn (kết nốt đường dẫn với router)-> chạy thử -> Vào service lấy dữ liệu từ database -> bơm dữ liệu lấy từ database vào html trong hanlde routing (trong controller > handle > ...Routing) -> chạy chương trình -> rồi xử lý phương thức get làm gì, post làm gì ở hanlde routing (trong controller > handle > ...Routing) -> chạy xem kết quả 
