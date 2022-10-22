@@ -12,14 +12,19 @@ function getUrl(req) {
 
 const server = http.createServer((req, res) => {
     const arrPath = getUrl(req);
-    const trimPath = arrPath[arrPath.length - 1];
+    let trimPath = '';
+    if (arrPath.length > 2) {
+        trimPath = arrPath[1] + "/" + arrPath[2];
+    } else {
+        trimPath = arrPath[arrPath.length - 1];
+    }
     let chosenHandle;
     if (typeof handler[trimPath] === 'undefined') {
         chosenHandle = NotFoundRouting.showNotFound
     } else {
         chosenHandle = handler[trimPath];
     }
-    chosenHandle(req, res);
+    chosenHandle(req, res, +arrPath[3]);
 })
 
 server.listen(8080, () => {
