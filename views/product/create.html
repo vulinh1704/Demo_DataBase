@@ -59,6 +59,12 @@
             <label for="exampleInputPassword1" class="form-label">Description</label>
             <input type="text" class="form-control" id="exampleInputPassword2" name="description">
         </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" name="idCategory">
+                <option selected>Category</option>
+                {categories}
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const qs = require('qs');
 const ProductService = require('D:\\JavaScript\\Module3\\Module3DemoDatabase\\service\\productService.js');
+const CategoryService = require('D:\\JavaScript\\Module3\\Module3DemoDatabase\\service\\categoryService.js');
 
 class ProductRouting {
     static getHtmlProducts(products, indexHtml) {
@@ -38,6 +39,12 @@ class ProductRouting {
                 if (err) {
                     console.log(err);
                 } else {
+                    let categories = await CategoryService.getCategories();
+                    let optionHtml = ``;
+                    for (let i = 0; i < categories.length; i++) {
+                        optionHtml += `<option value="${categories[i].id}">${categories[i].name}</option>`
+                    }
+                    indexHtml = indexHtml.replace('{categories}', optionHtml);
                     res.writeHead(200, 'text/html');
                     res.write(indexHtml);
                     res.end();
